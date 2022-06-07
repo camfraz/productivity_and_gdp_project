@@ -1,0 +1,162 @@
+---
+title: "Productivity & GDP Data Cleaning"
+author: "Cam Fraser"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Initial Exploration
+
+Here is documentation of the 8 initial datasets, with initial exploration and data 
+cleaning. <br>
+New data sets will be created from these data sets and saved as new files with 
+meaningful names!
+
+
+# Looking at data before importing
+
+8 datasets were initially supplied for this project, here's a summary of each
+
+---
+
+# Exports by business size
+
+`Exports by business size - OECD.xlsx` 
+<br>
+1 sheet with the following variables:
+
+* Location - countries with the first 3 letters to denote
+* Indicator - one factor "EXPBSNS" meaning expenses
+* Subject - number of employees (All, 0-9, 10-49, 50-249, 250 or more)
+* Measure - one factor "MLN_USD" which is the currency used to measure
+* Frequency - one factor "A" meaning whole year/all year
+* Time - which year the row relates to (2008 - 2017)
+* Value - value of MLN_USD for that year (if next column has E then it's an estimate)
+
+---
+
+# UK GDP Estimates
+
+`UK GDP Estimates - Time Series.xlsx`
+<br>
+1 sheet with alot of data within it
+
+Multiple variables but is a time series data set from 1946 - 2018, with it also 
+split by quarter (but appended row)
+<br>
+Might be hard to use 
+<br>
+This data is split into different variables that lead to GDP
+
+---
+
+# UK Labour Productivity 
+
+`Uk Labour Productivity - Time Series.xlxs`
+<br>
+1 sheet with a lot of data within it
+
+Multiple variables but is a time series data set from 1946 - 2018, with it also split by quarter (but appended row)
+<br>
+Might be hard to use (like above)
+<br>
+This data is split into different variables that lead to Productivity
+
+---
+
+# Global Competitiveness Dataset
+
+`Global Competitiveness Dataset.xlxs`
+<br>
+4 sheets
+
+* Terms and conditions in "About this dataset"
+* Main dataset in "Data"
+  * countries are variables, each row is global competitiveness index per country 
+  for 2018, and 2017 forecast
+  * some hidden columns with meanings in the next sheet
+* Meaning for each row in "Meta Data"
+* Countries and their codes in "Entities"
+
+---
+
+# Global Financial Development
+
+`Global Financial Development.xlxs`
+<br>
+2 sheets with the following info in them:
+
+* "Definitions and Sources" is a sheet explaining each variable
+* "Data - July 2018" is a sheet with a lot of info on GDP for different countries
+  * Variables of interest will be population total `SP.POP.TOTL`, GDP per capita `NY.GDP.PCAP.KD`
+
+---
+
+# Growth Of Lending - Individuals
+
+`GrowthOfLending_Individuals.xlxs`
+<br>
+1 sheet with following info:
+
+* Monthly growth rates (for 1 month, 3 months, 6 months, 12 months) not leading to individuals
+* Data taken from Bank of England
+
+---
+
+# UK Public Service Productivity
+
+`UK Public Service Productivity.xlsx`
+<br>
+4 sheets with the following info:
+
+* sheet explaining what's contained in the spreadsheet "Content"
+* UK annual productivity, inputs and outputs form 1997 to 2017 "Annual PSP"
+* UK quarterly product, inputs and outputs for 2017 to 2018 "Quarterly PSP"
+* Revisions for quarterly data from 2011 to 2017 for each income, output and 
+product "Revisions to PSP"
+
+---
+
+# Growth of Output
+
+`Growth of Output.xlxs`
+<br>
+3 sheets with the following info:
+
+* countries and their GDP growth rates based on the local currency from 1961 - 2017 (when the information is available)
+* Information on each countries income group, notes on main industries, country codes "Metadata - Countries"
+* Explanation of what the data is "Metadata - indicators"
+
+---
+---
+
+# Data Cleaning
+
+Here will perform any steps to clean data/create new data sets for initial exploration into trends of GDP and Productivity
+
+# Exports by business size - OECD.xlsx
+
+```{r}
+library(reticulate)
+```
+
+
+```{python}
+use_condaenv("python")
+```
+
+
+```{python}
+import pandas as pd
+import numpy as np
+```
+
+
+
+
+
+
